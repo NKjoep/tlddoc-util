@@ -5,7 +5,7 @@ The tag library documentation usually is ugly and difficult to generate.
 
 I used to work with java-jar-maven-j2EE on daily base and I wanted to have a better tool than the old [TLDDoc](http://search.maven.org/#artifactdetails%7Ctaglibrarydoc%7Ctlddoc%7C1.3%7Cjar) utility.
 
-So I've started writing my own generator.
+So I've started writing my own generator compatible with the [tag library 2.0](http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd)
 
 ##usage
 ```bash
