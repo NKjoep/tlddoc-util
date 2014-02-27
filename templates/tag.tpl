@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<title>
-			{{name}} {{tl.displayName}} {{tl.version}} documentation
+			{{name}} {{tl.display-name}} {{tl.tlib-version}} documentation
 		</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -25,7 +25,7 @@
 				<p>{{{description}}}</p>
 				<dl class="dl-horizontal">
 					<dt>Tag Library</dt>
-						<dd><a href="{{tl.short-name}}.html">{{tl.display-name}} v{{tl.tlib-version}}&#32;<span class="glyphicon glyphicon-circle-arrow-right"></span></a></dd>
+						<dd><a href="index-{{tl.short-name}}.html">{{tl.display-name}} v{{tl.tlib-version}}&#32;<span class="glyphicon glyphicon-circle-arrow-right"></span></a></dd>
 					<dt title="The fully qualified name of the tag handler class.">tag-class</dt>
 						<dd><code>{{tag-class}}</code></dd>
 					<dt title="(optional) Subclass of javax.servlet.jsp.tagext.TagExtraInfo.">tei-class</dt>
@@ -61,31 +61,34 @@
 				</dl>
 
 				{{#if example}}
-				<h2 class="h4">Example</h2>
-				<pre class="well well-small">{{example}}</pre>
+					<h2 class="h4">Example</h2>
+					<pre class="well well-small">{{example}}</pre>
 				{{/if}}
 
-				<table class="table table-responsive table-striped table-hover">
-					<caption class="h3 text-left">Attributes</caption>
-						<tr>
-							<th>Name</th>
-							<th><abbr title="Required">R</abbr></th>
-							<th><abbr title="Rtexprvalue">Exp</abbr></th>
-							<th>Type</th>
-							<th>Fragment</th>
-							<th>Description</th>
-						</tr>
-						{{#attribute}}
+				{{#if attribute}}
+					<table class="table table-responsive table-striped table-hover">
+						<caption class="h3 text-left">Attributes</caption>
 							<tr>
-								<th><code>{{name}}</code></th>
-								<td>{{#if required}}{{required}}{{else}}false{{/if}}</td>
-								<td>{{#if rtexprvalue}}{{rtexprvalue}}{{else}}false{{/if}}</td>
-								<td><code>{{#if type}}{{type}}{{else}}java.lang.String{{/if}}</code></td>
-								<td>{{#if fragment}}{{fragment}}{{else}}false{{/if}}</td>
-								<td>{{{description}}}</td>
+								<th>Name</th>
+								<th><abbr title="Required">R</abbr></th>
+								<th><abbr title="Rtexprvalue">Exp</abbr></th>
+								<th>Type</th>
+								<th>Fragment</th>
+								<th>Description</th>
 							</tr>
-						{{/attribute}}
-				</table>
+							{{#attribute}}
+								<tr>
+									<th><code>{{name}}</code></th>
+									<td>{{#if required}}{{required}}{{else}}false{{/if}}</td>
+									<td>{{#if rtexprvalue}}{{rtexprvalue}}{{else}}false{{/if}}</td>
+									<td><code>{{#if type}}{{type}}{{else}}java.lang.String{{/if}}</code></td>
+									<td>{{#if fragment}}{{fragment}}{{else}}false{{/if}}</td>
+									<td>{{{description}}}</td>
+								</tr>
+							{{/attribute}}
+					</table>
+				{{/if}}
+
 			</div>
 	</body>
 </html>

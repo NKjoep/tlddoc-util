@@ -43,7 +43,7 @@ var processTagLib = function(filepath) {
 		var compiledString = template(tlInfo);
 		try { fs.mkdirSync("generated-docs"); } catch (e) {}
 		try { fs.mkdirSync("generated-docs/"+tlInfo['short-name']+'-'+tlInfo['tlib-version']); } catch (e) {}
-		fs.writeFileSync('generated-docs/'+tlInfo['short-name']+'-'+tlInfo['tlib-version']+'/'+tlInfo['short-name']+'.html', compiledString, {flag: 'w'});
+		fs.writeFileSync('generated-docs/'+tlInfo['short-name']+'-'+tlInfo['tlib-version']+'/index-'+tlInfo['short-name']+'.html', compiledString, {flag: 'w'});
 	}
 
 	var createTag = function (tlInfo, tag) {
@@ -68,7 +68,7 @@ var processTagLib = function(filepath) {
 
 };
 
-_.each(files, processedTagLib);
+_.each(files, processTagLib);
 
 /* //todo
 var templateSource = fs.readFileSync("templates/index.tpl", {encoding: 'utf-8'});

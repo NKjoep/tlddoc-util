@@ -18,3 +18,6 @@ node tlddoc-util.js -h
 ```bash
 node tlddoc-util.js /myfolder/myfile.tld
 ```
+
+##license
+tlddoc-util is released under the MIT license.
