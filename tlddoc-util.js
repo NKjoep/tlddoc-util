@@ -19,9 +19,8 @@ if (files.length==0||argv.h||argv.help) {
 
 var processedTagLib = [];
 
-var processTagLib = function(filepath) {
-	var data = fs.readFileSync(filepath);
-	var xml = data;
+var processTagLib = function(filepath, cb, index) {
+	var xml = fs.readFileSync(filepath);
 	//processedTagLib.push(tlInfo);
 
 	var tag = function(tagjson) {
@@ -31,6 +30,7 @@ var processTagLib = function(filepath) {
 		_.each(tagjson.taglib.tag, function(tag, index, list){
 			createTag(tlInfo, tag);
 		});
+		cb(tlInfo, index);
 	};
 
 	var extractTlInfo = function (tagjson) {
@@ -68,16 +68,26 @@ var processTagLib = function(filepath) {
 
 };
 
-_.each(files, processTagLib);
+var createMainIndex = function() {
+	var templateSource = fs.readFileSync("templates/index.tpl", {encoding: 'utf-8'});
+	var template = handlebars.compile(templateSource);
+	var compiledString = template({processedTagLib: processedTagLib});
+	try { fs.mkdirSync("generated-docs"); } catch (e) {}
+	fs.writeFileSync('generated-docs/index.html', compiledString, {flag: 'w'});
+}
 
-/* //todo
-var templateSource = fs.readFileSync("templates/index.tpl", {encoding: 'utf-8'});
-var template = handlebars.compile(templateSource);
-var compiledString = template({processedTagLib: processedTagLib});
-try { fs.mkdirSync("generated-docs"); } catch (e) {}
-console.log(processedTagLib);
-fs.writeFileSync('generated-docs/index.html', compiledString, {flag: 'w'});
-*/
+var reach = function(taglib, index) {
+	processedTagLib.push(taglib);
+	if(files.length-1==index) {
+		createMainIndex();
+	}
+}
+
+_.each(files, function(item, index) {
+	processTagLib(item, reach, index);
+});
+
+
 
 
 
