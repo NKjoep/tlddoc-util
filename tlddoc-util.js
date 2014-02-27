@@ -8,8 +8,14 @@ var p = require('xml2js').parseString;
 var files = argv._;
 var usage = function(){
 	console.log("\nUsage:");
-	console.log("\tnode tlddoc-util.js file [<file> ...]");
+	console.log("\tnode tlddoc-util.js [-o outputfolder] [--output=outputfolder] file [<file> ...]");
 	process.exit();
+}
+
+var outputfolder = 'generated-docs';
+
+if(argv.o || argv.output) {
+	outputfolder = argv.o||argv.output;
 }
 
 if (files.length==0||argv.h||argv.help) {
@@ -41,17 +47,17 @@ var processTagLib = function(filepath, cb, index) {
 		var templateSource = fs.readFileSync("templates/tl-index.tpl", {encoding: 'utf-8'});
 		var template = handlebars.compile(templateSource);
 		var compiledString = template(tlInfo);
-		try { fs.mkdirSync("generated-docs"); } catch (e) {}
-		try { fs.mkdirSync("generated-docs/"+tlInfo['short-name']+'-'+tlInfo['tlib-version']); } catch (e) {}
-		fs.writeFileSync('generated-docs/'+tlInfo['short-name']+'-'+tlInfo['tlib-version']+'/index-'+tlInfo['short-name']+'.html', compiledString, {flag: 'w'});
+		try { fs.mkdirSync(outputfolder); } catch (e) {}
+		try { fs.mkdirSync(outputfolder+'/'+tlInfo['short-name']+'-'+tlInfo['tlib-version']); } catch (e) {}
+		fs.writeFileSync(outputfolder+'/'+tlInfo['short-name']+'-'+tlInfo['tlib-version']+'/index-'+tlInfo['short-name']+'.html', compiledString, {flag: 'w'});
 	}
 
 	var createTag = function (tlInfo, tag) {
 		var templateSource = fs.readFileSync("templates/tag.tpl", {encoding: 'utf-8'});
 		var template = handlebars.compile(templateSource);
 		var compiledString = template(_.extend(tag, {tl: tlInfo}));
-		try { fs.mkdirSync("generated-docs"); } catch (e) {}
-		fs.writeFileSync('generated-docs/'+tlInfo['short-name']+'-'+tlInfo['tlib-version']+'/'+tag.name+'.html', compiledString, {flag: 'w'});
+		try { fs.mkdirSync(outputfolder); } catch (e) {}
+		fs.writeFileSync(outputfolder+'/'+tlInfo['short-name']+'-'+tlInfo['tlib-version']+'/'+tag.name+'.html', compiledString, {flag: 'w'});
 	}
 
 
@@ -72,8 +78,8 @@ var createMainIndex = function() {
 	var templateSource = fs.readFileSync("templates/index.tpl", {encoding: 'utf-8'});
 	var template = handlebars.compile(templateSource);
 	var compiledString = template({processedTagLib: processedTagLib});
-	try { fs.mkdirSync("generated-docs"); } catch (e) {}
-	fs.writeFileSync('generated-docs/index.html', compiledString, {flag: 'w'});
+	try { fs.mkdirSync(outputfolder); } catch (e) {}
+	fs.writeFileSync(outputfolder+'/index.html', compiledString, {flag: 'w'});
 }
 
 var reach = function(taglib, index) {

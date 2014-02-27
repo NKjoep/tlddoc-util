@@ -16,7 +16,7 @@ node tlddoc-util.js -h
 ##sample
 
 ```bash
-node tlddoc-util.js /myfolder/myfile.tld
+node tlddoc-util.js --output=folder_output /archived/file.tld
 ```
 
 ##license
