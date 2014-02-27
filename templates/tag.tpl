@@ -22,7 +22,11 @@
 	<body>
 			<div class="container">
 				<h1>{{name}}</h1>
+				<hr />
+
 				<p>{{{description}}}</p>
+				<hr />
+
 				<dl class="dl-horizontal">
 					<dt>Tag Library</dt>
 						<dd><a href="index-{{tl.short-name}}.html">{{tl.display-name}} v{{tl.tlib-version}}&#32;<span class="glyphicon glyphicon-circle-arrow-right"></span></a></dd>
@@ -59,10 +63,13 @@
 					<dt title="(optional) Extensions that provide extra information about the tag for tools">tag-extension</dt>
 						<dd>{{tag-extension}}</dd>
 				</dl>
+				<div class="clearfix"></div>
+				<hr />
 
 				{{#if example}}
 					<h2 class="h4">Example</h2>
 					<pre class="well well-small">{{example}}</pre>
+					<hr />
 				{{/if}}
 
 				{{#if attribute}}
@@ -87,6 +94,7 @@
 								</tr>
 							{{/attribute}}
 					</table>
+					<hr />
 				{{/if}}
 
 			</div>

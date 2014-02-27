@@ -22,7 +22,10 @@
 	<body>
 		<div class="container">
 			<h1>{{display-name}}</h1>
-			<p>{{description}}</p>
+			<hr />
+
+			<p>{{{description}}}</p>
+			<hr />
 
 			<dl class="dl-horizontal">
 				<dt>Standard Syntax</dt>
@@ -51,7 +54,9 @@
 				<dt>URI</dt>
 					<dd><code>{{uri}}</code></dd>
 			</dl>
+			<div class="clearfix"></div>
 			<hr />
+
 			{{#if tag}}
 				<table class="table table-responsive table-striped">
 					<caption class="h3 text-left">Tag Summary</caption>
@@ -68,7 +73,9 @@
 							</tr>
 						{{/tag}}
 				</table>
+				<hr />
 			{{/if}}
+
 			{{#if validator}}
 					<table class="table table-responsive table-striped">
 						<caption class="h3 text-left">Validator</caption>
@@ -83,6 +90,7 @@
 								</tr>
 							{{/validator}}
 					</table>
+					<hr />
 			{{/if}}
 		</div>
 	</body>
