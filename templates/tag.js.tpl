@@ -23,28 +23,28 @@ jQuery(function(){
 					$('.typeahead').typeahead({
 						source: taglibs,
 						matcher: function(item) {
-							var reg = new RegExp(this.query.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&'));
+							var reg = new RegExp(this.query.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/gi, '\\$&'));
 							return  (
-									reg.test(item.name)
-									|| reg.test(item.prefix)
-									|| reg.test(item.tld)
-									|| reg.test(item.tlddescr)
-									|| reg.test(item.prefix+':'+item.name)
+									reg.test(item.name.toLowerCase())
+									|| reg.test(item.prefix.toLowerCase())
+									|| reg.test(item.tld.toLowerCase())
+									|| reg.test(item.tlddescr.toLowerCase())
+									|| reg.test(item.prefix.toLowerCase()+':'+item.name.toLowerCase())
 								)
 						},
 						sorter: function(items) {
 							$(this.$menu).width($(this.$element).outerWidth()+"px");
 							var r = items.sort(function(a, b){
-								if(a.prefix > b.prefix) {
+								if(a.prefix.toLowerCase() > b.prefix.toLowerCase()) {
 									return a;
 								}
-								if (a.prefix < b.prefix) {
+								if (a.prefix.toLowerCase() < b.prefix.toLowerCase()) {
 									return b;
 								}
-								if (a.name > b.name) {
+								if (a.name.toLowerCase() > b.name.toLowerCase()) {
 									return a
 								}
-								if (a.name < b.name) {
+								if (a.name.toLowerCase() < b.name.toLowerCase()) {
 									return b
 								}
 								return a;
