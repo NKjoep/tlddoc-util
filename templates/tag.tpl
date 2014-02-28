@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-basepath="../">
 	<head>
 		<title>
 			{{name}} {{tl.display-name}} {{tl.tlib-version}} documentation
@@ -15,17 +15,37 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css" />
 		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+		<style>
+			.typeahead.dropdown-menu {
+				text-align: left;
+			}
+		</style>
+		<script src="http://dl.dropboxusercontent.com/u/1840263/bootstrap3-typeahead.min.js"></script>
+		<script src="../tag.js"></script>
 	</head>
 	<body>
+		<div class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="collapse navbar-collapse text-right">
+					<form class="navbar-form" role="search">
+							<input type="text" class="form-control typeahead" style="width: 40%" placeholder="Search">
+					</form>
+				</div>
+			</div>
+		</div>
 			<div class="container">
-				<h1>{{name}}</h1>
+				<h1><span class="label label-default">{{tl.short-name}}</span>&#32;{{name}}</h1>
 				<hr />
 
-				<p>{{{description}}}</p>
-				<hr />
+				{{#if description}}
+					<p>{{{description}}}</p>
+					<hr />
+				{{/if}}
 
 				<dl class="dl-horizontal">
 					<dt>Tag Library</dt>

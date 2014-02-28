@@ -4,6 +4,7 @@ var fs = require('fs');
 var handlebars = require('handlebars');
 var parseString = require('xml2js').parseString;
 var p = require('xml2js').parseString;
+var util = require('util');
 
 var files = argv._;
 var usage = function(){
@@ -22,6 +23,11 @@ if (files.length==0||argv.h||argv.help) {
 	usage();
 }
 
+handlebars.registerHelper("js-string", function(string) {
+	if(string===undefined) return ""
+	if (util.isArray(string)) string = string.join('');
+	return string.toString().replace(/\n/g, '').replace(/\r/g, '').replace(/'/g, "\\'").replace(/"/g, '\\"').replace(/\s+/g, " ").replace(/^\s+/g, '').replace(/\s+$/g, '');
+});
 
 var processedTagLib = [];
 
@@ -80,6 +86,11 @@ var createMainIndex = function() {
 	var compiledString = template({processedTagLib: processedTagLib});
 	try { fs.mkdirSync(outputfolder); } catch (e) {}
 	fs.writeFileSync(outputfolder+'/index.html', compiledString, {flag: 'w'});
+
+	templateSource = fs.readFileSync("templates/tag.js.tpl", {encoding: 'utf-8'});
+	template = handlebars.compile(templateSource);
+	compiledString = template({processedTagLib: processedTagLib});
+	fs.writeFileSync(outputfolder+'/tag.js', compiledString, {flag: 'w'});
 }
 
 var reach = function(taglib, index) {
