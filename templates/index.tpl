@@ -31,7 +31,7 @@
 	<body>
 		<div class="navbar navbar-default">
 			<div class="container-fluid">
-				<div class="collapse navbar-collapse text-right">
+				<div class="navbar-collapse text-right">
 					<form class="navbar-form" role="search">
 							<input type="text" class="form-control typeahead" style="width: 40%" placeholder="Search">
 					</form>

@@ -31,8 +31,9 @@
 	<body>
 		<div class="navbar navbar-default">
 			<div class="container-fluid">
-				<div class="collapse navbar-collapse text-right">
+				<div class="navbar-collapse text-right">
 					<form class="navbar-form" role="search">
+							<a class="btn btn-link pull-left" href="../index.html">Taglib Index</a>
 							<input type="text" class="form-control typeahead" style="width: 40%" placeholder="Search">
 					</form>
 				</div>
@@ -42,16 +43,17 @@
 		<div class="container">
 			<h1>{{display-name}}{{#unless display-name}}{{uri}}{{/unless}}</h1>
 			<hr />
-			{{#description}}
+
+			{{#if description}}
 				<p>{{{description}}}</p>
 				<hr />
-			{{/description}}
+			{{/if}}
 
 			<dl class="dl-horizontal">
 				<dt>Standard Syntax</dt>
 					 <dd>
 					 	<code>
-					 		&lt;%@ taglib prefix="{{short-name}}{{#unless short-name}}prefix{{/unless}}" uri="{{uri}}" %&gt;
+					 		&lt;%@ taglib prefix="{{short-name}}" uri="{{uri}}" %&gt;
 					 	</code>
 				 	</dd>
 				<dt>XML Syntax</dt>
@@ -65,22 +67,30 @@
 
 			<h2 class="h3">Tag Library Information</h2>
 			<dl class="dl-horizontal">
-				{{#display-name}}
-					<dt>Display Name</dt>
-						<dd>{{display-name}}</dd>
-				{{/display-name}}
-				<dt>Version</dt>
-					<dd><code>{{tlib-version}}</code></dd>
-				{{#short-name}}
-					<dt>Short Name</dt>
-						<dd><code class="text-info">{{short-name}}</code></dd>
-				{{/short-name}}
-				<dt>URI</dt>
-					<dd><code>{{uri}}</code></dd>
-				{{#icon}}
-					<dt>Icon</dt>
-						<dd><code>{{icon}}</code></dd>
-				{{/icon}}
+					{{#if display-name}}
+						<dt>Display Name</dt>
+							<dd>{{display-name}}</dd>
+					{{/if}}
+					{{#if tlib-version}}
+						<dt>Version</dt>
+							<dd>{{tlib-version}}</dd>
+					{{/if}}
+					{{#if short-name}}
+						<dt>Short Name</dt>
+							<dd><code class="text-info">{{short-name}}</code></dd>
+					{{/if}}
+					{{#if uri}}
+						<dt>URI</dt>
+							<dd><code>{{uri}}</code></dd>
+					{{/if}}
+					{{#if tag-exstension}}
+						<dt>Tag Extension</dt>
+							<dd>{{tag-exstension}}</dd>
+					{{/if}}
+					{{#if icon}}
+						<dt>Icon</dt>
+							<dd>{{icon}}</dd>
+					{{/if}}
 			</dl>
 			<div class="clearfix"></div>
 			<hr />
@@ -111,12 +121,12 @@
 								<th style="white-space:nowrap;">validator-class</th>
 								<th style="white-space:nowrap;">init-param</th>
 							</tr>
-						{{#validator}}
+						{{#each validator}}
 							<tr>
-								<td><code>{{{validator-class}}}</code></td>
-								<td>{{{init-param}}}</td>
+								<td><code>{{validator-class}}</code></td>
+								<td>{{init-param}}</td>
 							</tr>
-						{{/validator}}
+						{{/each}}
 				</table>
 				<hr />
 			{{/if}}
@@ -130,6 +140,25 @@
 						{{#each listener}}
 							<tr>
 								<td><code>{{listener-class}}</code></td>
+							</tr>
+						{{/each}}
+				</table>
+				<hr />
+			{{/if}}
+
+			{{#if function}}
+				<table class="table table-responsive table-striped">
+					<caption class="h3 text-left">Functions</caption>
+							<tr>
+								<th style="white-space:nowrap;">name</th>
+								<th>class</th>
+								<th>signature</th>
+							</tr>
+						{{#each function}}
+							<tr>
+								<td><code>{{name}}</code></td>
+								<td><code>{{function-class}}</code></td>
+								<td><code>{{function-signature}}</code></td>
 							</tr>
 						{{/each}}
 				</table>
