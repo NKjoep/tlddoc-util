@@ -1,5 +1,12 @@
 jQuery(function(){
-	var basepath = $('html').attr('data-basepath');
+
+var basepath = $('html').attr('data-basepath');
+var menuEl = $('#index-divider');
+
+{{#each processedTagLib}}
+menuEl.before('<li><a href="'+basepath+'{{short-name}}-{{tlib-version}}/index-{{short-name}}.html">{{display-name}} {{tlib-version}}</a></li>');
+{{/each}}
+
 	var taglibs = [
 		{{#processedTagLib}}{{#tag}}
 				{

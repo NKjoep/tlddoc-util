@@ -31,11 +31,18 @@
 	<body>
 		<div class="navbar navbar-default">
 			<div class="container-fluid">
-				<div class="navbar-collapse text-right">
-					<form class="navbar-form" role="search">
-							<input type="text" class="form-control typeahead" style="width: 40%" placeholder="Search">
-					</form>
-				</div>
+				<form class="navbar-form pull-right" style="width: 60%" role="search">
+						<input type="text" class="form-control typeahead" style="width: 100%" placeholder="Search" />
+				</form>
+				<ul class="nav navbar-nav">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Tag Library Documentation <b class="caret"></b></a>
+						<ul class="dropdown-menu" role="menu" id="menu">
+							<li id="index-divider" class="divider"></li>
+							<li><a href="../index.html">Tag Libraries Index</a></li>
+						</ul>
+					</li>
+				</ul>
 			</div>
 		</div>
 		<div class="container">
