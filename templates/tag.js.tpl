@@ -8,7 +8,8 @@ menuEl.before('<li><a href="'+basepath+'{{short-name}}-{{tlib-version}}/index-{{
 {{/each}}
 
 	var taglibs = [
-		{{#processedTagLib}}{{#tag}}
+		{{#processedTagLib}}
+		{{#tag}}
 				{
 					name: "{{js-string name}}",
 					prefix: "{{js-string ../short-name}}",
@@ -16,7 +17,17 @@ menuEl.before('<li><a href="'+basepath+'{{short-name}}-{{tlib-version}}/index-{{
 					tlddescr: "{{js-string description}}",
 					url: "{{js-string ../short-name}}-{{js-string ../tlib-version}}/{{js-string name}}.html"
 				},
-		{{/tag}}{{/processedTagLib}}
+		{{/tag}}
+		{{#function}}
+				{
+					name: "{{js-string name}}",
+					prefix: "{{js-string ../short-name}}",
+					tld: "{{js-string ../display-name}}" ,
+					tlddescr: "{{js-string description}}",
+					url: "{{js-string ../short-name}}-{{js-string ../tlib-version}}/{{js-string name}}.html"
+				},
+		{{/function}}
+		{{/processedTagLib}}
 		{
 			name: '',
 			prefix: '',
