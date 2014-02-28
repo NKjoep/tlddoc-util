@@ -1,4 +1,5 @@
 .DS_Store
+*.tld
 
 lib-cov
 lcov.info
