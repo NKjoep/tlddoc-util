@@ -42,6 +42,11 @@ var processTagLib = function(filepath, cb, index) {
 		_.each(tagjson.taglib.tag, function(tag, index, list){
 			createTag(tlInfo, tag);
 		});
+
+		_.each(tagjson.taglib['function'], function(fn, index, list){
+			createFn(tlInfo, fn);
+		});
+
 		cb(tlInfo, index);
 	};
 
@@ -66,6 +71,13 @@ var processTagLib = function(filepath, cb, index) {
 		fs.writeFileSync(outputfolder+'/'+tlInfo['short-name']+'-'+tlInfo['tlib-version']+'/'+tag.name+'.html', compiledString, {flag: 'w'});
 	}
 
+	var createFn = function (tlInfo, fn) {
+		var templateSource = fs.readFileSync("templates/function.tpl", {encoding: 'utf-8'});
+		var template = handlebars.compile(templateSource);
+		var compiledString = template(_.extend(fn, {tl: tlInfo}));
+		try { fs.mkdirSync(outputfolder); } catch (e) {}
+		fs.writeFileSync(outputfolder+'/'+tlInfo['short-name']+'-'+tlInfo['tlib-version']+'/'+fn.name+'.html', compiledString, {flag: 'w'});
+	}
 
 	var extractValueFromJson = function(jsonVal) {
 		var v = jsonVal;

@@ -54,7 +54,19 @@
 					{{name}}
 				</h1>
 				<hr />
-
+<!--
+  <function>
+    <description>
+      Tests if an input string contains the specified substring.
+    </description>
+    <name>contains</name>
+    <function-class>org.apache.taglibs.standard.functions.Functions</function-class>
+    <function-signature>boolean contains(java.lang.String, java.lang.String)</function-signature>
+    <example>
+      &lt;c:if test="${fn:contains(name, searchString)}">
+    </example>
+  </function>
+-->
 				{{#if description}}
 					<p>{{{description}}}</p>
 					<hr />
@@ -63,45 +75,11 @@
 				<dl class="dl-horizontal">
 					<dt>Tag Library</dt>
 						<dd><a href="index-{{tl.short-name}}.html">{{tl.display-name}}{{#unless tl.display-name}}{{tl.uri}}{{/unless}} {{#if tl.tlib-version}}v{{tl.tlib-version}}{{/if}}&#32;<span class="glyphicon glyphicon-circle-arrow-right"></span></a></dd>
-					<dt title="The fully qualified name of the tag handler class.">tag-class</dt>
-						<dd><code>{{tag-class}}</code></dd>
-					{{#if tei-class}}
-						<dt title="(optional) Subclass of javax.servlet.jsp.tagext.TagExtraInfo.">tei-class</dt>
-							<dd><code>{{tei-class}}</code></dd>
-					{{/if}}
-					{{#if body-content}}
-						<dt title="The body content type.">body-content</dt>
-							<dd>{{body-content}}</dd>
-							{{#if variable}}
-								{{#variable}}
-								<dt title="(optional) Declares an EL variable exposed by the tag to the calling page.">variable</dt>
-									<dd>
-											<div class="clearfix clear-fix"></div>
-											<dl class="dl-horizontal">
-												<dt class="text-right">description</dt>
-													<dd class="text-left">{{description}}</dd>
-												<dt class="text-right">name-given</dt>
-													<dd class="text-left">{{name-given}}</dd>
-												<dt class="text-right">name-from-attribute</dt>
-													<dd class="text-left">{{name-from-attribute}}</dd>
-												<dt class="text-right">variable-class</dt>
-													<dd class="text-left">{{variable-class}}</dd>
-												<dt class="text-right">declare</dt>
-													<dd class="text-left">{{declare}}</dd>
-												<dt class="text-right">scope</dt>
-													<dd class="text-left">{{scope}}</dd>
-											</dl>
-									</dd>
-								{{/variable}}
-							{{/if}}
-					{{/if}}
-					{{#if dynamic-attributes}}
-						<dt title="Whether the tag supports additional attributes with dynamic names. Defaults to false. If true, the tag handler class must implement the javax.servlet.jsp.tagext.DynamicAttributes interface.">dynamic-attributes</dt>
-							<dd>{{dynamic-attributes}}</dd>
-					{{/if}}
-					{{#if tag-extension}}
-						<dt title="(optional) Extensions that provide extra information about the tag for tools">tag-extension</dt>
-							<dd>{{tag-extension}}</dd>
+					<dt>function-class</dt>
+						<dd><code>{{function-class}}</code></dd>
+					{{#if function-signature}}
+						<dt>function-signature</dt>
+							<dd class="text-monospace">{{function-signature}}</dd>
 					{{/if}}
 				</dl>
 				<div class="clearfix"></div>
@@ -110,31 +88,6 @@
 				{{#if example}}
 					<h2 class="h4">Example</h2>
 					<pre class="well well-small">{{example}}</pre>
-					<hr />
-				{{/if}}
-
-				{{#if attribute}}
-					<table class="table table-responsive table-striped table-hover">
-						<caption class="h3 text-left">Attributes</caption>
-							<tr>
-								<th>Name</th>
-								<th><abbr title="Required">R</abbr></th>
-								<th><abbr title="Rtexprvalue">Exp</abbr></th>
-								<th>Type</th>
-								<th>Fragment</th>
-								<th>Description</th>
-							</tr>
-							{{#attribute}}
-								<tr>
-									<th><code>{{name}}</code></th>
-									<td>{{#if required}}{{required}}{{else}}false{{/if}}</td>
-									<td>{{#if rtexprvalue}}{{rtexprvalue}}{{else}}false{{/if}}</td>
-									<td><code>{{#if type}}{{type}}{{else}}java.lang.String{{/if}}</code></td>
-									<td>{{#if fragment}}{{fragment}}{{else}}false{{/if}}</td>
-									<td>{{{description}}}</td>
-								</tr>
-							{{/attribute}}
-					</table>
 					<hr />
 				{{/if}}
 

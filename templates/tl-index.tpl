@@ -24,6 +24,9 @@
 			.typeahead.dropdown-menu {
 				text-align: left;
 			}
+			.text-monospace {
+				font-family: monospace;
+			}
 		</style>
 		<script src="http://dl.dropboxusercontent.com/u/1840263/bootstrap3-typeahead.min.js"></script>
 		<script src="../tag.js"></script>
@@ -83,7 +86,7 @@
 					{{/if}}
 					{{#if short-name}}
 						<dt>Short Name</dt>
-							<dd><code class="text-info">{{short-name}}</code></dd>
+							<dd><span class="label label-default">{{short-name}}</dd>
 					{{/if}}
 					{{#if uri}}
 						<dt>URI</dt>
@@ -162,9 +165,15 @@
 							</tr>
 						{{#each function}}
 							<tr>
-								<td><code>{{name}}</code></td>
+								<th style="white-space:nowrap;">
+									<a href="{{name}}.html">
+										{{../short-name}}:{{name}}
+										&#32;
+										<span class="glyphicon glyphicon-circle-arrow-right"></span>
+									</a>
+								</th>
 								<td><code>{{function-class}}</code></td>
-								<td><code>{{function-signature}}</code></td>
+								<td class="text-monospace">{{function-signature}}</td>
 							</tr>
 						{{/each}}
 				</table>

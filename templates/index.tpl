@@ -24,6 +24,9 @@
 			.typeahead.dropdown-menu {
 				text-align: left;
 			}
+			.text-monospace {
+				font-family: monospace;
+			}
 		</style>
 		<script src="http://dl.dropboxusercontent.com/u/1840263/bootstrap3-typeahead.min.js"></script>
 		<script src="tag.js"></script>
