@@ -40,23 +40,24 @@
 		</div>
 
 		<div class="container">
-			<h1>{{display-name}}</h1>
+			<h1>{{display-name}}{{#unless display-name}}{{uri}}{{/unless}}</h1>
 			<hr />
-
-			<p>{{{description}}}</p>
-			<hr />
+			{{#description}}
+				<p>{{{description}}}</p>
+				<hr />
+			{{/description}}
 
 			<dl class="dl-horizontal">
 				<dt>Standard Syntax</dt>
 					 <dd>
 					 	<code>
-					 		&lt;%@ taglib prefix="{{short-name}}" uri="{{uri}}" %&gt;
+					 		&lt;%@ taglib prefix="{{short-name}}{{#unless short-name}}prefix{{/unless}}" uri="{{uri}}" %&gt;
 					 	</code>
 				 	</dd>
 				<dt>XML Syntax</dt>
 					 <dd>
 						 <code>
-						 		&lt;anyxmlelement xmlns:{{short-name}}="urn:jsptld:{{uri}}" /&gt;
+						 		&lt;anyxmlelement xmlns:{{short-name}}{{#unless short-name}}prefix{{/unless}}="urn:jsptld:{{uri}}" /&gt;
 						 </code>
 				 	</dd>
 			</dl>
@@ -64,14 +65,22 @@
 
 			<h2 class="h3">Tag Library Information</h2>
 			<dl class="dl-horizontal">
-				<dt>Display Name</dt>
-					<dd>{{display-name}}</dd>
+				{{#display-name}}
+					<dt>Display Name</dt>
+						<dd>{{display-name}}</dd>
+				{{/display-name}}
 				<dt>Version</dt>
 					<dd><code>{{tlib-version}}</code></dd>
-				<dt>Short Name</dt>
-					<dd><code class="text-info">{{short-name}}</code></dd>
+				{{#short-name}}
+					<dt>Short Name</dt>
+						<dd><code class="text-info">{{short-name}}</code></dd>
+				{{/short-name}}
 				<dt>URI</dt>
 					<dd><code>{{uri}}</code></dd>
+				{{#icon}}
+					<dt>Icon</dt>
+						<dd><code>{{icon}}</code></dd>
+				{{/icon}}
 			</dl>
 			<div class="clearfix"></div>
 			<hr />
@@ -96,21 +105,37 @@
 			{{/if}}
 
 			{{#if validator}}
-					<table class="table table-responsive table-striped">
-						<caption class="h3 text-left">Validator</caption>
-								<tr>
-									<th style="white-space:nowrap;">validator-class</th>
-									<th style="white-space:nowrap;">init-param</th>
-								</tr>
-							{{#validator}}
-								<tr>
-									<td><code>{{{validator-class}}}</code></td>
-									<td>{{{init-param}}}</td>
-								</tr>
-							{{/validator}}
-					</table>
-					<hr />
+				<table class="table table-responsive table-striped">
+					<caption class="h3 text-left">Validator</caption>
+							<tr>
+								<th style="white-space:nowrap;">validator-class</th>
+								<th style="white-space:nowrap;">init-param</th>
+							</tr>
+						{{#validator}}
+							<tr>
+								<td><code>{{{validator-class}}}</code></td>
+								<td>{{{init-param}}}</td>
+							</tr>
+						{{/validator}}
+				</table>
+				<hr />
 			{{/if}}
+
+			{{#if listener}}
+				<table class="table table-responsive table-striped">
+					<caption class="h3 text-left">Listeners</caption>
+							<tr>
+								<th style="white-space:nowrap;">class</th>
+							</tr>
+						{{#each listener}}
+							<tr>
+								<td><code>{{listener-class}}</code></td>
+							</tr>
+						{{/each}}
+				</table>
+				<hr />
+			{{/if}}
+
 		</div>
 	</body>
 </html>
