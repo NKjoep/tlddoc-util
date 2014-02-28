@@ -67,6 +67,16 @@
 									</div>
 									&#32;
 					{{/tag}}
+					{{#function}}
+									<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+									<a class="" href="{{../short-name}}-{{../tlib-version}}/{{name}}.html" title="{{description}}">
+										{{../short-name}}:{{name}}
+										&#32;
+										<span class="glyphicon glyphicon-circle-arrow-right"></span>
+									</a>
+									</div>
+									&#32;
+					{{/function}}
 				</div>
 				<hr />
 			{{/processedTagLib}}
