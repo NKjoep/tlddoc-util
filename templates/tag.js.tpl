@@ -41,7 +41,7 @@ menuEl.before('<li><a href="'+basepath+'{{short-name}}-{{tlib-version}}/index-{{
 						},
 						sorter: function(items) {
 							$(this.$menu).width($(this.$element).outerWidth()+"px");
-							var r = items.sort(function(a, b){
+							var items = items.sort(function(a, b){
 								if(a.prefix.toLowerCase() > b.prefix.toLowerCase()) {
 									return a;
 								}
@@ -56,7 +56,7 @@ menuEl.before('<li><a href="'+basepath+'{{short-name}}-{{tlib-version}}/index-{{
 								}
 								return a;
 							});
-							return r;
+							return items;
 						},
 						highlighter: function(item) {
 							return '<span title="'+item.tlddescr+'" class="label label-default">'
