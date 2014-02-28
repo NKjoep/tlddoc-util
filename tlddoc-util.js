@@ -95,6 +95,15 @@ var processTagLib = function(filepath, cb, index) {
 var createMainIndex = function() {
 	var templateSource = fs.readFileSync("templates/index.tpl", {encoding: 'utf-8'});
 	var template = handlebars.compile(templateSource);
+	processedTagLib = processedTagLib.sort(function(a, b){
+		if ((a['short-name']).toString().toLowerCase() > (b['short-name']).toString().toLowerCase()) {
+			return 1;
+		}
+		if ((a['short-name']).toString().toLowerCase() < (b['short-name']).toString().toLowerCase()) {
+			return -1;
+		}
+		return 0;
+	});
 	var compiledString = template({processedTagLib: processedTagLib});
 	try { fs.mkdirSync(outputfolder); } catch (e) {}
 	fs.writeFileSync(outputfolder+'/index.html', compiledString, {flag: 'w'});

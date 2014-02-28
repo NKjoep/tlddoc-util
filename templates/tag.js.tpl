@@ -54,18 +54,18 @@ menuEl.before('<li><a href="'+basepath+'{{short-name}}-{{tlib-version}}/index-{{
 							$(this.$menu).width($(this.$element).outerWidth()+"px");
 							var items = items.sort(function(a, b){
 								if(a.prefix.toLowerCase() > b.prefix.toLowerCase()) {
-									return a;
+									return 1;
 								}
 								if (a.prefix.toLowerCase() < b.prefix.toLowerCase()) {
-									return b;
+									return -1;
 								}
 								if (a.name.toLowerCase() > b.name.toLowerCase()) {
-									return a
+									return 1
 								}
 								if (a.name.toLowerCase() < b.name.toLowerCase()) {
-									return b
+									return -1
 								}
-								return a;
+								return 0;
 							});
 							return items;
 						},
