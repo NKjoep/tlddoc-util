@@ -1,4 +1,8 @@
-#tlddoc-util
+# tlddoc-util
+
+A command line tool that generates pretty html documentation from java tld files
+
+TL;DR;
 
 The tag library documentation usually is ugly and difficult to generate.
 
@@ -6,17 +10,25 @@ I work with java-jar-maven-j2EE on daily basis and I wanted to have a better too
 
 So I've started writing my own generator compatible with the [tag library 2.0](http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd)
 
-##usage
-```bash
-npm install #only the first time
-node tlddoc-util.js -h
-```
 
-##sample
+## Getting Started
+Install the module with: `npm install tlddoc-util`. Then you can:
 
 ```bash
-node tlddoc-util.js --output=folder_output /archived/file.tld
+tlddoc-util myfile.tld
 ```
 
-##license
-tlddoc-util is released under the MIT license.
+## Documentation
+_(Coming soon)_
+
+## Examples
+```bash
+tlddoc-util --output=folder_output /archived/file.tld
+```
+
+## Release History
+_(Nothing yet)_
+
+## License
+Copyright (c) 2014 Andrea Dessì
+Licensed under the MIT license.

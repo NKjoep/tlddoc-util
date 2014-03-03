@@ -1,15 +1,51 @@
 {
-	"name": "tlddoc-util",
-	"description": "Parses java tld files and create html files",
-	"engines": {
-		"node": "0.10.x",
-		"npm": "1.3.x"
-	},
-	"dependencies": {
-		"underscore": "*",
-		"dateformat": "*",
-		"xml2js": "*",
-		"handlebars": "*",
-		"minimist": "*"
-	}
+  "name": "tlddoc-util",
+  "description": "A command line tool that generates pretty html documentation from java tld files",
+  "version": "0.1.0",
+  "homepage": "https://github.com/NKjoep/tlddoc-util",
+  "author": {
+    "name": "Andrea Dessì",
+    "email": "nkjoep@gmail.com",
+    "url": "https://github.com/NKjoep/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/NKjoep/tlddoc-util.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NKjoep/tlddoc-util/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/NKjoep/tlddoc-util/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "lib/tlddoc-util",
+  "preferGlobal": "true",
+  "bin": {
+    "tlddoc-util": "lib/tlddoc-util.js"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.3.x"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.6.4",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt": "~0.4.2"
+  },
+  "dependencies": {
+    "underscore": "*",
+    "dateformat": "*",
+    "xml2js": "*",
+    "handlebars": "*",
+    "minimist": "*"
+  },
+  "keywords": [
+    "tld",
+    "documentation",
+    "cli"
+  ]
 }
