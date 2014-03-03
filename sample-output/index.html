@@ -1,67 +1,452 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-basepath="#">
 	<head>
-		<title>
-			Taglibrary documentation
-		</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content="tlddoc-utils.js" />
+		<meta name="description" content="" />
+		<meta name="author" content="" />
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico" />
 
-		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+		<title>Tag Library Documentation</title>
 
-		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-		<!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"> -->
-		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css" />
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+		<style>
+			.typeahead.dropdown-menu {
+				text-align: left;
+			}
+			.typeahead.dropdown-menu li {
+				overflow: hidden;
+				text-overflow: ellipsis;
+				font-size: 100%;
+				white-space: nowrap;
+			}
+			.text-monospace {
+				font-family: monospace;
+			}
+			body {
+				padding-top: 70px;
+			}
+			#menu.affix {
+				/*
+				max-height: 80%;
+				height: 80%;
+				overflow: scroll;
+				*/
+			}
+			#menu.affix-top {
+			}
+			#menu.affix-bottom {
+			}
+			.tag-index-item {
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+			.margin-none-top {
+				margin-top: 0;
+			}
+			.taglib-spacer {
+				margin-top: 8em;
+			}
+			.indexer {
+				padding-top: 70px;
+			}
+		</style>
 	</head>
-	<body>
-		<div class="container">
-			
-				<h2>
-					<span class="label label-default">tt</span>
-					<a href="tt-0.0/index-tt.html">
-						TestLibrary
-					</a>
-				</h2>
-				<div class="row">
+
+	<body data-spy="scroll" data-target=".tagmenu">
+
+		<!-- Fixed navbar -->
+		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Tag Library Documentation</a>
+				</div>
+				<div class="navbar-collapse collapse tagmenu">
+					<ul class="nav navbar-nav">
+						
+							<li><a href="#tt_00">tt</a></li>
+						
+						
+					</ul>
+					<form class="navbar-form navbar-right">
+						<input type="text" class="form-control typeahead" placeholder="Search tag...">
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="container" id="main">
+
+			<div class="row">
+				<div class="col-md-12">
 					
-									<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
-									<a class="" href="tt-0.0/fake.html" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					<div class="indexer" id="tt_00">
+						<div class="panel panel-info">
+							<div class="panel-heading">
+								<h2 class="panel-title">
+									<!-- <span class="label label-default">tt</span> -->
+									<a href="#tt_00" class=""  title="Go to TestLibrary details">
+										TestLibrary v0.0</a>
+									<a data-toggle="collapse" data-target="#tt-00-info" href="#tt-0.0-info" class="pull-right" title="Go to TestLibrary details">
+										<span class="glyphicon glyphicon-minus"></span></a>
+									
+										&emsp;<small>Test Tag Library</small>
+									
+								</h2>
+							</div>
+							<div class="panel-body">
+									
+											Test Tag Library<hr />
+									
+									<dl class="dl-horizontal collapse in" id="tt-00-info">
+										<dt>Standard Syntax</dt>
+											 <dd>
+											 	<code>
+											 		&lt;%@ taglib prefix="tt" uri="/test" %&gt;
+											 	</code>
+										 	</dd>
+										<dt>XML Syntax</dt>
+											 <dd>
+												 <code>
+												 		&lt;anyxmlelement xmlns:tt="urn:jsptld:/test" /&gt;
+												 </code>
+										 	</dd>
+											
+												<dt>Display Name</dt>
+													<dd>TestLibrary</dd>
+											
+											
+												<dt>Version</dt>
+													<dd>0.0</dd>
+											
+											
+												<dt>Short Name</dt>
+													<dd><span class="label label-default">tt</dd>
+											
+											
+												<dt>URI</dt>
+													<dd><code>/test</code></dd>
+											
+											
+											
+									</dl>
+									<div class="clearfix"></div>
+									
+											<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3 tag-index-item">
+												<a class="" href="#tt_00-fake" title="tt:fake: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.">
+													tt:fake&nbsp;<span class="glyphicon glyphicon-circle-arrow-right"></span>
+												</a>
+											</div>
+									
+											<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3 tag-index-item">
+												<a class="" href="#tt_00-fake2" title="tt:fake2: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.">
+													tt:fake2&nbsp;<span class="glyphicon glyphicon-circle-arrow-right"></span>
+												</a>
+											</div>
+									
+									
+							</div>
+						</div>
+					</div>
+					
+
+
+					
+						<div class="clearfix" role="presentation"></div>
+						<!--
+						<div class="indexer" id="tt_00">
+							<div class="well">
+								<h1 class="margin-none-top">TestLibrary</h1>
+								
+									<p>Test Tag Library</p>
+								
+
+								<dl class="dl-horizontal">
+									<dt>Standard Syntax</dt>
+										 <dd>
+										 	<code>
+										 		&lt;%@ taglib prefix="tt" uri="/test" %&gt;
+										 	</code>
+									 	</dd>
+									<dt>XML Syntax</dt>
+										 <dd>
+											 <code>
+											 		&lt;anyxmlelement xmlns:tt="urn:jsptld:/test" /&gt;
+											 </code>
+									 	</dd>
+										
+											<dt>Display Name</dt>
+												<dd>TestLibrary</dd>
+										
+										
+											<dt>Version</dt>
+												<dd>0.0</dd>
+										
+										
+											<dt>Short Name</dt>
+												<dd><span class="label label-default">tt</dd>
+										
+										
+											<dt>URI</dt>
+												<dd><code>/test</code></dd>
+										
+										
+										
+								</dl>
+								
+
+								
+							</div>
+						</div>
+						-->
+
+						
+							<div id="tt_00-fake" class="indexer">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h3 class="panel-title" id="tt_00-fake">
+											<span class="label label-default">tt</span>&#32;
+											fake
+											<small class="pull-right">TestLibrary</small>
+										</h3>
+									</div>
+									<div class="panel-body">
+										
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.">
-										tt:fake
-										&#32;
-										<span class="glyphicon glyphicon-circle-arrow-right"></span>
-									</a>
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+											<hr />
+										
+
+										<dl class="dl-horizontal">
+											<dt>Tag Library</dt>
+												<dd><a href="#tt_00">TestLibrary v&#32;<span class="glyphicon glyphicon-circle-arrow-right"></span></a></dd>
+											<dt title="The fully qualified name of the tag handler class.">tag-class</dt>
+												<dd><code>com.fake.FakeTag</code></dd>
+											
+												<dt title="(optional) Subclass of javax.servlet.jsp.tagext.TagExtraInfo.">tei-class</dt>
+													<dd><code>mia tei class</code></dd>
+											
+											
+												<dt title="The body content type.">body-content</dt>
+													<dd>JSP</dd>
+													
+														
+														<dt title="(optional) Declares an EL variable exposed by the tag to the calling page.">variable</dt>
+															<dd>
+																	<div class="clearfix clear-fix"></div>
+																	<dl class="dl-horizontal">
+																		<dt class="text-right">description</dt>
+																			<dd class="text-left">vvv descr</dd>
+																		<dt class="text-right">name-given</dt>
+																			<dd class="text-left">nnnn given</dd>
+																		<dt class="text-right">name-from-attribute</dt>
+																			<dd class="text-left">nnn from attr</dd>
+																		<dt class="text-right">variable-class</dt>
+																			<dd class="text-left">class.org.qualcosa</dd>
+																		<dt class="text-right">declare</dt>
+																			<dd class="text-left">true</dd>
+																		<dt class="text-right">scope</dt>
+																			<dd class="text-left">session</dd>
+																	</dl>
+															</dd>
+														
+													
+											
+											
+												<dt title="Whether the tag supports additional attributes with dynamic names. Defaults to false. If true, the tag handler class must implement the javax.servlet.jsp.tagext.DynamicAttributes interface.">dynamic-attributes</dt>
+													<dd>true</dd>
+											
+											
+												<dt title="(optional) Extensions that provide extra information about the tag for tools">tag-extension</dt>
+													<dd>a,b,c</dd>
+											
+										</dl>
+										<div class="clearfix"></div>
+
+										
+											<h2 class="h6 text-muted">Example</h2>
+											<pre class="bg-warning well well-small">
+&lt;tt:fake ....
+
+ some code here &lt;%= ... .. --$&gt;
+
+&lt;/tt:fake&gt;
+</pre>
+										
+
+										
+											<table class="table table-responsive table-striped table-hover">
+												<caption class="h5 text-left">Attributes</caption>
+													<tr>
+														<th>Name</th>
+														<th><abbr title="Required">R</abbr></th>
+														<th><abbr title="Rtexprvalue">Exp</abbr></th>
+														<th>Type</th>
+														<th>Fragment</th>
+														<th>Description</th>
+													</tr>
+													
+														<tr>
+															<th><code>var</code></th>
+															<td>no</td>
+															<td>true</td>
+															<td><code>java.lang.String</code></td>
+															<td>false</td>
+															<td>Name of the page-scoped variable where to place the URL.</td>
+														</tr>
+													
+														<tr>
+															<th><code>attribute2</code></th>
+															<td>yes</td>
+															<td>false</td>
+															<td><code>java.lang.String</code></td>
+															<td>false</td>
+															<td>Attribute 2</td>
+														</tr>
+													
+											</table>
+										
+									</div><!-- panel-body -->
+								</div>
+							</div>
+						
+							<div id="tt_00-fake2" class="indexer">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h3 class="panel-title" id="tt_00-fake2">
+											<span class="label label-default">tt</span>&#32;
+											fake2
+											<small class="pull-right">TestLibrary</small>
+										</h3>
 									</div>
-									&#32;
-					
-									<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
-									<a class="" href="tt-0.0/fake2.html" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+									<div class="panel-body">
+										
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.">
-										tt:fake2
-										&#32;
-										<span class="glyphicon glyphicon-circle-arrow-right"></span>
-									</a>
-									</div>
-									&#32;
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+											<hr />
+										
+
+										<dl class="dl-horizontal">
+											<dt>Tag Library</dt>
+												<dd><a href="#tt_00">TestLibrary v&#32;<span class="glyphicon glyphicon-circle-arrow-right"></span></a></dd>
+											<dt title="The fully qualified name of the tag handler class.">tag-class</dt>
+												<dd><code>com.fake.FakeTag</code></dd>
+											
+												<dt title="(optional) Subclass of javax.servlet.jsp.tagext.TagExtraInfo.">tei-class</dt>
+													<dd><code>mia tei class</code></dd>
+											
+											
+												<dt title="The body content type.">body-content</dt>
+													<dd>JSP</dd>
+													
+														
+														<dt title="(optional) Declares an EL variable exposed by the tag to the calling page.">variable</dt>
+															<dd>
+																	<div class="clearfix clear-fix"></div>
+																	<dl class="dl-horizontal">
+																		<dt class="text-right">description</dt>
+																			<dd class="text-left">vvv descr</dd>
+																		<dt class="text-right">name-given</dt>
+																			<dd class="text-left">nnnn given</dd>
+																		<dt class="text-right">name-from-attribute</dt>
+																			<dd class="text-left">nnn from attr</dd>
+																		<dt class="text-right">variable-class</dt>
+																			<dd class="text-left">class.org.qualcosa</dd>
+																		<dt class="text-right">declare</dt>
+																			<dd class="text-left">true</dd>
+																		<dt class="text-right">scope</dt>
+																			<dd class="text-left">session</dd>
+																	</dl>
+															</dd>
+														
+													
+											
+											
+												<dt title="Whether the tag supports additional attributes with dynamic names. Defaults to false. If true, the tag handler class must implement the javax.servlet.jsp.tagext.DynamicAttributes interface.">dynamic-attributes</dt>
+													<dd>true</dd>
+											
+											
+												<dt title="(optional) Extensions that provide extra information about the tag for tools">tag-extension</dt>
+													<dd>a,b,c</dd>
+											
+										</dl>
+										<div class="clearfix"></div>
+
+										
+											<h2 class="h6 text-muted">Example</h2>
+											<pre class="bg-warning well well-small">
+&lt;tt:fake ....
+
+ some code here &lt;%= ... .. --$&gt;
+
+&lt;/tt:fake&gt;
+</pre>
+										
+
+										
+									</div><!-- panel-body -->
+								</div>
+							</div>
+						
+						
+
 					
 				</div>
-				<hr />
-			
+				
+			</div>
+
+		<hr />
+
+		<div class="row">
+			<div class="col-md-offset-10">
+				Created with <a href="https://github.com/NKjoep/tlddoc-util">tlddoc-util</a>
+			</div>
 		</div>
+
+		</div> <!-- /container -->
+
+
+
+		<!-- Bootstrap core JavaScript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+		<script>
+			/*jQuery(function(){
+				$('#menu').on('activate.bs.scrollspy', function () {
+					$('#menu').animate({
+						scrollTop: $('#menu li.active').offset().top
+					}, 150);
+				})
+			})*/
+		</script>
+		<script src="http://dl.dropboxusercontent.com/u/1840263/bootstrap3-typeahead.min.js"></script>
+		<script src="tag.js"></script>
 	</body>
 </html>
-

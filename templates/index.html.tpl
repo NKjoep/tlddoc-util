@@ -98,14 +98,17 @@
 						</li>
 						--}}
 					</ul>
-				</div><!--/.nav-collapse -->
+					<form class="navbar-form navbar-right">
+						<input type="text" class="form-control typeahead" placeholder="Search tag...">
+					</form>
+				</div>
 			</div>
 		</div>
 
 		<div class="container" id="main">
 
 			<div class="row">
-				<div class="col-md-9">
+				<div class="col-md-12">
 					{{#each processedTagLib}}
 					<div class="indexer" id="{{short-name}}_{{scrollspySanitazer tlib-version}}">
 						<div class="panel panel-info">
@@ -115,7 +118,7 @@
 									<a href="#{{short-name}}_{{scrollspySanitazer tlib-version}}" class=""  title="Go to {{display-name}} details">
 										{{display-name}} v{{tlib-version}}</a>
 									<a data-toggle="collapse" data-target="#{{short-name}}-{{scrollspySanitazer tlib-version}}-info" href="#{{short-name}}-{{tlib-version}}-info" class="pull-right" title="Go to {{display-name}} details">
-										<span class="glyphicon glyphicon-circle-arrow-down"></span></a>
+										<span class="glyphicon glyphicon-minus"></span></a>
 									{{#if description}}
 										&emsp;<small>{{description}}</small>
 									{{/if}}
@@ -398,11 +401,8 @@
 
 					{{/each}}
 				</div>
+				{{!--
 				<div class="col-md-3">
-					<form role="search" data-spy="affix" data-offset-top="300px">
-							<input type="text" class="form-control typeahead" placeholder="Search tag...">
-					</form>
-					{{!--
 					<div id="menu" class="tagmenu" data-spy="affix" data-offset-top="300px">
 							<ul class="nav nav-pills nav-stacked" id="tagmenu">
 								{{#each processedTagLib}}
@@ -428,11 +428,20 @@
 								{{/each}}
 							</ul>
 					</div>
-					--}}
 				</div>
+				--}}
 			</div>
 
+		<hr />
+
+		<div class="row">
+			<div class="col-md-offset-10">
+				Created with <a href="https://github.com/NKjoep/tlddoc-util">tlddoc-util</a>
+			</div>
+		</div>
+
 		</div> <!-- /container -->
+
 
 
 		<!-- Bootstrap core JavaScript

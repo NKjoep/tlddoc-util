@@ -5,6 +5,7 @@ var handlebars = require('handlebars');
 var parseString = require('xml2js').parseString;
 var p = require('xml2js').parseString;
 var util = require('util');
+var path = require('path');
 
 var files = argv._;
 var usage = function(){
@@ -47,7 +48,10 @@ var processTagLib = function(filepath, callbackExecutor, index) {
 	var xml = fs.readFileSync(filepath);
 
 	parseString(xml, function (err, result) {
-			if(err) return;
+			if(err) {
+				console.log('error processing: '+filepath);
+				return;
+			}
 			var extractedTaglibrary = result.taglib;
 			callbackExecutor(extractedTaglibrary, index);
 	});
@@ -64,17 +68,21 @@ var createMainIndex = function() {
 		}
 		return 0;
 	});
+	console.log('sorted tag libraries...');
 	try { fs.mkdirSync(outputfolder); } catch (e) {}
 
 	templateSource = fs.readFileSync("templates/tag.js.tpl", {encoding: 'utf-8'});
 	template = handlebars.compile(templateSource);
 	compiledString = template({processedTagLib: processedTagLib});
 	fs.writeFileSync(outputfolder+'/tag.js', compiledString, {flag: 'w'});
+	console.log('generated javascript helper...');
 
 	templateSource = fs.readFileSync("templates/index.html.tpl", {encoding: 'utf-8'});
 	template = handlebars.compile(templateSource);
 	compiledString = template({processedTagLib: processedTagLib});
 	fs.writeFileSync(outputfolder+'/index.html', compiledString, {flag: 'w'});
+	console.log('created index.html...');
+	console.log('finish! Your documentation is ready at: ' + path.normalize(outputfolder + '/index.html'));
 }
 
 var reach = function(taglib, index) {
@@ -85,5 +93,6 @@ var reach = function(taglib, index) {
 }
 
 _.each(files, function(item, index) {
+	console.log('parsing: '+item + ' ...')
 	processTagLib(item, reach, index);
 });
