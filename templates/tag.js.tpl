@@ -1,12 +1,6 @@
 jQuery(function(){
 
 var basepath = $('html').attr('data-basepath');
-var menuEl = $('#index-divider');
-
-{{#each processedTagLib}}
-menuEl.before('<li><a href="'+basepath+'{{short-name}}-{{tlib-version}}/index-{{short-name}}.html">{{display-name}} {{tlib-version}}</a></li>');
-{{/each}}
-
 	var taglibs = [
 		{{#processedTagLib}}
 		{{#tag}}
@@ -15,7 +9,7 @@ menuEl.before('<li><a href="'+basepath+'{{short-name}}-{{tlib-version}}/index-{{
 					prefix: "{{js-string ../short-name}}",
 					tld: "{{js-string ../display-name}}" ,
 					tlddescr: "{{js-string description}}",
-					url: "{{js-string ../short-name}}-{{js-string ../tlib-version}}/{{js-string name}}.html"
+					url: "{{js-string ../short-name}}_{{scrollspySanitazer ../tlib-version}}-{{js-string name}}"
 				},
 		{{/tag}}
 		{{#function}}
@@ -24,7 +18,7 @@ menuEl.before('<li><a href="'+basepath+'{{short-name}}-{{tlib-version}}/index-{{
 					prefix: "{{js-string ../short-name}}",
 					tld: "{{js-string ../display-name}}" ,
 					tlddescr: "{{js-string description}}",
-					url: "{{js-string ../short-name}}-{{js-string ../tlib-version}}/{{js-string name}}.html"
+					url: "{{js-string ../short-name}}_{{scrollspySanitazer ../tlib-version}}-{{js-string name}}"
 				},
 		{{/function}}
 		{{/processedTagLib}}
@@ -65,11 +59,9 @@ menuEl.before('<li><a href="'+basepath+'{{short-name}}-{{tlib-version}}/index-{{
 							var query = this.query.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&');
 							var regexp = new RegExp('(' + query + ')', 'ig');
 
-							return '<span title="'+item.tlddescr+'" class="label label-default">'
-							+item.tld
-							+'</span> &lt'
+							return ''
 							+ (item.prefix+':'+item.name).replace(regexp, function($1, match){ return '<strong class="bg-primary">' + match + '</strong>' })
-							+'&gt<span class="glyphicon glyphicon-circle-arrow-right pull-right"></span>';
+							+'';
 						},
 						updater: function(item) {
 							window.location.href=basepath+item.url;
