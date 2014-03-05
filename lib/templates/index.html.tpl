@@ -4,15 +4,16 @@
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="generator" content="tlddoc-utils.js" />
-		<meta name="description" content="" />
-		<meta name="author" content="" />
-		<link rel="shortcut icon" href="../../assets/ico/favicon.ico" />
+		<meta name="generator" content="tlddoc-utils" />
 
-		<title>Tag Library Documentation</title>
+		<title>{{title}}</title>
 
 		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css" />
+
+		<link rel="stylesheet" href="dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="dist/css/bootstrap-theme.min.css" />
+
 
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
@@ -70,13 +71,15 @@
 		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<a class="navbar-brand" href="#">{{title}}</a>
+					<div class="sr-only"><hr /></div>
+					<span class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="#">Tag Library Documentation</a>
+					</span>
+					<div class="sr-only"><hr /></div>
 				</div>
 				<div class="navbar-collapse collapse tagmenu">
 					<ul class="nav navbar-nav">
@@ -276,8 +279,12 @@
 								<div class="panel panel-default">
 									<div class="panel-heading">
 										<h3 class="panel-title" id="{{../short-name}}_{{scrollspySanitazer ../tlib-version}}-{{name}}">
-											<span class="label label-default">{{../short-name}}</span>&#32;
+											<span class="sr-only">&lt;</span>
+											<span class="label label-default">{{../short-name}}</span>
+											<span class="sr-only">:</span>
+											&#32;
 											{{name}}
+											<span class="sr-only">&gt;</span>
 											<small class="pull-right">{{../display-name}}{{#unless ../display-name}}{{../uri}}{{/unless}}</small>
 										</h3>
 									</div>
@@ -352,7 +359,13 @@
 													{{#attribute}}
 														<tr>
 															<th><code>{{name}}</code></th>
-															<td>{{#if required}}{{required}}{{else}}false{{/if}}</td>
+															<td>
+																{{#if required}}
+																		{{required}}
+																{{else}}
+																	<span class="text-muted">false</span>
+																{{/if}}
+															</td>
 															<td>{{#if rtexprvalue}}{{rtexprvalue}}{{else}}false{{/if}}</td>
 															<td><code>{{#if type}}{{type}}{{else}}java.lang.String{{/if}}</code></td>
 															<td>{{#if fragment}}{{fragment}}{{else}}false{{/if}}</td>
@@ -370,8 +383,11 @@
 								<div class="panel panel-default">
 									<div class="panel-heading">
 										<h3 class="panel-title">
+											<span class="sr-only">&lt;</span>
 											<span class="label label-default">{{../short-name}}</span>&#32;
+											<span class="sr-only">:</span>
 											{{name}}
+											<span class="sr-only">&gt;</span>
 											<small class="pull-right">{{../display-name}}{{#unless ../display-name}}{{../uri}}{{/unless}}</small>
 										</h3>
 									</div>
@@ -432,13 +448,14 @@
 				--}}
 			</div>
 
-		<hr />
+			<hr />
 
-		<div class="row">
-			<div class="col-md-offset-10">
-				Created with <a href="https://github.com/NKjoep/tlddoc-util">tlddoc-util</a>
+			<div class="row">
+				<div class="col-lg-12 text-right">
+					<p class="small">Created with <a href="https://github.com/NKjoep/tlddoc-util">tlddoc-util</a></p>
+
+				</div>
 			</div>
-		</div>
 
 		</div> <!-- /container -->
 
