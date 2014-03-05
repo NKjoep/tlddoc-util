@@ -27,7 +27,10 @@ tlddoc-util --output=folder_output /archived/file.tld
 ```
 
 ## Release History
-_(Nothing yet)_
+### **0.2.2**
+ * introducing the title option (-t|--title)
+ * added controls when parsing files
+ * some messages to the console
 
 ## License
 Copyright (c) 2014 Andrea Dessì
