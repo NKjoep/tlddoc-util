@@ -1,7 +1,7 @@
 {
   "name": "tlddoc-util",
   "description": "A command line tool that generates pretty html documentation from java tld files",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "homepage": "https://github.com/NKjoep/tlddoc-util",
   "author": {
     "name": "Andrea Dessì",

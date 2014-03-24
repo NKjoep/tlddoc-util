@@ -79,23 +79,14 @@
 				</div>
 				<div class="navbar-collapse collapse tagmenu">
 					<ul class="nav navbar-nav">
-						{{#each processedTagLib}}
-							<li><a href="#{{short-name}}_{{scrollspySanitazer tlib-version}}">{{short-name}}</a></li>
-						{{/each}}
-						{{!--
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Action</a></li>
-								<li><a href="#">Another action</a></li>
-								<li><a href="#">Something else here</a></li>
-								<li class="divider"></li>
-								<li class="dropdown-header">Nav header</li>
-								<li><a href="#">Separated link</a></li>
-								<li><a href="#">One more separated link</a></li>
-							</ul>
-						</li>
-						--}}
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">go to <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									{{#each processedTagLib}}
+										<li><a href="#{{short-name}}_{{scrollspySanitazer tlib-version}}">{{short-name}}</a></li>
+									{{/each}}
+								</ul>
+							</li>
 					</ul>
 					<form class="navbar-form navbar-right">
 						<input type="text" class="form-control typeahead" placeholder="Search tag...">
@@ -341,33 +332,35 @@
 										{{/if}}
 
 										{{#if attribute}}
-											<table class="table table-responsive table-striped table-hover">
-												<caption class="h5 text-left">Attributes</caption>
-													<tr>
-														<th>Name</th>
-														<th><abbr title="Required">R</abbr></th>
-														<th><abbr title="Rtexprvalue">Exp</abbr></th>
-														<th>Type</th>
-														<th>Fragment</th>
-														<th>Description</th>
-													</tr>
-													{{#attribute}}
+											<div class="table-responsive">
+												<table class="table table-striped table-hover">
+													<caption class="h5 text-left">Attributes</caption>
 														<tr>
-															<th><code>{{name}}</code></th>
-															<td>
-																{{#if required}}
-																		{{required}}
-																{{else}}
-																	<span class="text-muted">false</span>
-																{{/if}}
-															</td>
-															<td>{{#if rtexprvalue}}{{rtexprvalue}}{{else}}false{{/if}}</td>
-															<td><code>{{#if type}}{{type}}{{else}}java.lang.String{{/if}}</code></td>
-															<td>{{#if fragment}}{{fragment}}{{else}}false{{/if}}</td>
-															<td>{{{description}}}</td>
+															<th>Name</th>
+															<th><abbr title="Required">R</abbr></th>
+															<th><abbr title="Rtexprvalue">Exp</abbr></th>
+															<th>Type</th>
+															<th>Fragment</th>
+															<th>Description</th>
 														</tr>
-													{{/attribute}}
-											</table>
+														{{#attribute}}
+															<tr>
+																<th><code>{{name}}</code></th>
+																<td>
+																	{{#if required}}
+																			{{required}}
+																	{{else}}
+																		<span class="text-muted">false</span>
+																	{{/if}}
+																</td>
+																<td>{{#if rtexprvalue}}{{rtexprvalue}}{{else}}false{{/if}}</td>
+																<td><code>{{#if type}}{{type}}{{else}}java.lang.String{{/if}}</code></td>
+																<td>{{#if fragment}}{{fragment}}{{else}}false{{/if}}</td>
+																<td>{{{description}}}</td>
+															</tr>
+														{{/attribute}}
+												</table>
+											</div>
 										{{/if}}
 									</div><!-- panel-body -->
 								</div>
@@ -461,14 +454,6 @@
 		<!-- Placed at the end of the document so the pages load faster -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-		<script>
-			/*jQuery(function(){
-				$('#menu').on('activate.bs.scrollspy', function () {
-					$('#menu').animate({
-						scrollTop: $('#menu li.active').offset().top
-					}, 150);
-				})
-			})*/
 		</script>
 		<script src="http://dl.dropboxusercontent.com/u/1840263/bootstrap3-typeahead.min.js"></script>
 		<script src="tag.js"></script>
