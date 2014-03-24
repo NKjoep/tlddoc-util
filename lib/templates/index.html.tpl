@@ -11,10 +11,6 @@
 		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css" />
 
-		<link rel="stylesheet" href="dist/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="dist/css/bootstrap-theme.min.css" />
-
-
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -65,9 +61,9 @@
 		</style>
 	</head>
 
-	<body data-spy="scroll" data-target=".tagmenu">
+	<body>
 
-		<!-- Fixed navbar -->
+		<!-- Fixed navbar		-->
 		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
@@ -108,6 +104,7 @@
 			</div>
 		</div>
 
+
 		<div class="container" id="main">
 
 			<div class="row">
@@ -119,7 +116,7 @@
 								<h2 class="panel-title">
 									<!-- <span class="label label-default">{{short-name}}</span> -->
 									<a href="#{{short-name}}_{{scrollspySanitazer tlib-version}}" class=""  title="Go to {{display-name}} details">
-										{{display-name}} v{{tlib-version}}</a>
+										<span class="icon glyphicon glyphicon-link"></span>&#32;{{display-name}} v{{tlib-version}}</a>
 									<a data-toggle="collapse" data-target="#{{short-name}}-{{scrollspySanitazer tlib-version}}-info" href="#{{short-name}}-{{tlib-version}}-info" class="pull-right" title="Go to {{display-name}} details">
 										<span class="glyphicon glyphicon-minus"></span></a>
 									{{#if description}}
@@ -134,16 +131,16 @@
 									<dl class="dl-horizontal collapse in" id="{{short-name}}-{{scrollspySanitazer tlib-version}}-info">
 										<dt>Standard Syntax</dt>
 											 <dd>
-											 	<code>
-											 		&lt;%@ taglib prefix="{{short-name}}" uri="{{uri}}" %&gt;
-											 	</code>
-										 	</dd>
+												<code>
+													&lt;%@ taglib prefix="{{short-name}}" uri="{{uri}}" %&gt;
+												</code>
+											</dd>
 										<dt>XML Syntax</dt>
 											 <dd>
 												 <code>
-												 		&lt;anyxmlelement xmlns:{{short-name}}{{#unless short-name}}prefix{{/unless}}="urn:jsptld:{{uri}}" /&gt;
+														&lt;anyxmlelement xmlns:{{short-name}}{{#unless short-name}}prefix{{/unless}}="urn:jsptld:{{uri}}" /&gt;
 												 </code>
-										 	</dd>
+											</dd>
 											{{#if display-name}}
 												<dt>Display Name</dt>
 													<dd>{{display-name}}</dd>
@@ -172,16 +169,15 @@
 									<div class="clearfix"></div>
 									{{#each tag}}
 											<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3 tag-index-item">
-												<a class="" href="#{{../short-name}}_{{scrollspySanitazer ../tlib-version}}-{{name}}" title="{{cleanString ../short-name}}:{{cleanString name}}{{#if description}}: {{cleanString description}}{{/if}}">
-													{{../short-name}}:{{name}}&nbsp;<span class="glyphicon glyphicon-circle-arrow-right"></span>
+												<a class="" href="#{{../short-name}}_{{scrollspySanitazer ../tlib-version}}-{{name}}" title="&lt;{{cleanString ../short-name}}:{{cleanString name}}&gt;{{#if description}}: {{cleanString description}}{{/if}}">
+													&lt;{{../short-name}}:{{name}}&gt;&nbsp;<span class="glyphicon glyphicon-circle-arrow-right"></span>
 												</a>
 											</div>
 									{{/each}}
 									{{#each function}}
 											<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
-												<a class="" href="#{{../short-name}}_{{scrollspySanitazer ../tlib-version}}-{{name}}" title="{{cleanString ../short-name}}:{{cleanString name}}{{#if description}}: {{cleanString description}}{{/if}}">
-													{{../short-name}}:{{name}}
-													<span class="glyphicon glyphicon-circle-arrow-right"></span>
+												<a class="" href="#{{../short-name}}_{{scrollspySanitazer ../tlib-version}}-{{name}}" title="&lt;{{cleanString ../short-name}}:{{cleanString name}}&gt;{{#if description}}: {{cleanString description}}{{/if}}">
+													&lt;{{../short-name}}:{{name}}&gt;&nbsp;<span class="glyphicon glyphicon-circle-arrow-right"></span>
 												</a>
 											</div>
 									{{/each}}
@@ -204,16 +200,16 @@
 								<dl class="dl-horizontal">
 									<dt>Standard Syntax</dt>
 										 <dd>
-										 	<code>
-										 		&lt;%@ taglib prefix="{{short-name}}" uri="{{uri}}" %&gt;
-										 	</code>
-									 	</dd>
+											<code>
+												&lt;%@ taglib prefix="{{short-name}}" uri="{{uri}}" %&gt;
+											</code>
+										</dd>
 									<dt>XML Syntax</dt>
 										 <dd>
 											 <code>
-											 		&lt;anyxmlelement xmlns:{{short-name}}{{#unless short-name}}prefix{{/unless}}="urn:jsptld:{{uri}}" /&gt;
+													&lt;anyxmlelement xmlns:{{short-name}}{{#unless short-name}}prefix{{/unless}}="urn:jsptld:{{uri}}" /&gt;
 											 </code>
-									 	</dd>
+										</dd>
 										{{#if display-name}}
 											<dt>Display Name</dt>
 												<dd>{{display-name}}</dd>
@@ -279,13 +275,12 @@
 								<div class="panel panel-default">
 									<div class="panel-heading">
 										<h3 class="panel-title" id="{{../short-name}}_{{scrollspySanitazer ../tlib-version}}-{{name}}">
-											<span class="sr-only">&lt;</span>
-											<span class="label label-default">{{../short-name}}</span>
-											<span class="sr-only">:</span>
-											&#32;
-											{{name}}
-											<span class="sr-only">&gt;</span>
-											<small class="pull-right">{{../display-name}}{{#unless ../display-name}}{{../uri}}{{/unless}}</small>
+											<a href="#{{../short-name}}_{{scrollspySanitazer ../tlib-version}}-{{name}}">
+												<span class="icon glyphicon glyphicon-link"></span>
+												&#32;
+												&lt;<span class="short-name">{{../short-name}}</span>:{{name}}&gt;
+											</a>
+											<small class="pull-right label label-default">{{../display-name}}{{#unless ../display-name}}{{../uri}}{{/unless}}</small>
 										</h3>
 									</div>
 									<div class="panel-body">
@@ -296,7 +291,7 @@
 
 										<dl class="dl-horizontal">
 											<dt>Tag Library</dt>
-												<dd><a href="#{{../short-name}}_{{scrollspySanitazer ../tlib-version}}">{{../display-name}}{{#unless ../display-name}}{{../uri}}{{/unless}} {{#if ../tlib-version}}v{{../tlib-version}}{{/if}}&#32;<span class="glyphicon glyphicon-circle-arrow-right"></span></a></dd>
+												<dd><a href="#{{../short-name}}_{{scrollspySanitazer ../tlib-version}}">{{../display-name}}{{#unless ../display-name}}{{../uri}}{{/unless}}&#32;{{../tlib-version}}&#32;<span class="glyphicon glyphicon-circle-arrow-right"></span></a></dd>
 											<dt title="The fully qualified name of the tag handler class.">tag-class</dt>
 												<dd><code>{{tag-class}}</code></dd>
 											{{#if tei-class}}
@@ -383,12 +378,12 @@
 								<div class="panel panel-default">
 									<div class="panel-heading">
 										<h3 class="panel-title">
-											<span class="sr-only">&lt;</span>
-											<span class="label label-default">{{../short-name}}</span>&#32;
-											<span class="sr-only">:</span>
-											{{name}}
-											<span class="sr-only">&gt;</span>
-											<small class="pull-right">{{../display-name}}{{#unless ../display-name}}{{../uri}}{{/unless}}</small>
+											<a href="#{{../short-name}}_{{scrollspySanitazer ../tlib-version}}-{{name}}">
+												<span class="icon glyphicon glyphicon-link"></span>
+												&#32;
+												&lt;<span class="short-name">{{../short-name}}</span>:{{name}}&gt;
+											</a>
+											<small class="pull-right label label-default">{{../display-name}}{{#unless ../display-name}}{{../uri}}{{/unless}}</small>
 										</h3>
 									</div>
 									<div class="panel-body">
